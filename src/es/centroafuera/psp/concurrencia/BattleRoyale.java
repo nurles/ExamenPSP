@@ -46,13 +46,15 @@ public class BattleRoyale {
 
     private static void calcularPutuacion(Jugador jugador) {
         Random r = new Random();
-        int puntuacion = r.nextInt();
+        int puntuacion = r.nextInt(1000);
 
-        if(jugador.isPrimeraTanda() && jugador.isEsCampeonPrimeraRonda()) {
-            if (jugador.isEsPrimero()) {
-                puntuacion*=2;
+        if(jugador.isPrimeraTanda()){
+            if(jugador.isEsCampeonPrimeraRonda()) {
+                if (jugador.isEsPrimero()) {
+                    puntuacion *= 2;
+                }
+                jugador.setPuntuacion(puntuacion);
             }
-            jugador.setPuntuacion(puntuacion);
         }else{
             jugador.setPuntuacion(puntuacion);
         }

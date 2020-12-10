@@ -1,18 +1,16 @@
 package es.centroafuera.psp.concurrencia;
 
 public class Jugador extends Thread{
-    BattleRoyale batalla;
+
     private boolean esPrimero = false;
     private boolean primeraTanda = false;
     private boolean esCampeonPrimeraRonda = false;
     private int puntuacion = 0;
 
-    public Jugador(BattleRoyale batalla){
-        this.batalla=batalla;
-    }
 
     @Override
     public void run() {
+        BattleRoyale batalla = new BattleRoyale();
         System.out.println("El "+getName()+ " esta listo para entrar");
         batalla.añadirParticipante(this);
 
